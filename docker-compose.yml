@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  app:
+    image: scnerd/devoted_daily_app
+    build: .
+    environment:
+      DEFAULT_PWD: password
+      DB_PASSWORD_FILE: /secrets/db_password
+      DEBUG_MODE: 1
+    volumes:
+      - ./secrets/db_password:/secrets/db_password
+    depends_on:
+      - postgres
+
+  proxy:
+    image: nginx:alpine
+    depends_on:
+      - app
+    volumes:
+      - ./proxy.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - 80:80
+
+  postgres:
+    image: postgres:alpine
+    environment:
+      POSTGRES_USER: devotion
+      POSTGRES_PASSWORD_FILE: /secrets/db_password
+    volumes:
+      - /var/lib/postgresql/data
+      - ./secrets/db_password:/secrets/db_password
