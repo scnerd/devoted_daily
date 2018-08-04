@@ -1,0 +1,7 @@
+CACHE MANIFEST
+{% load static from staticfiles %}
+{% static '/player.html' %}
+
+{% for path in to_cache %}
+{{ path }}
+{% endfor %}

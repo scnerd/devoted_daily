@@ -1,3 +1,5 @@
 django >= 2
+django-bootstrap4
 uwsgi
 psycopg2
+requests

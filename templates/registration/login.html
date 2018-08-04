@@ -1,0 +1,17 @@
+{% extends "../devotion_site/base.html" %}
+
+{% block title %}Log in{% endblock %}
+
+{% load bootstrap4 %}
+
+{% block content %}
+
+<form method="post">
+{% csrf_token %}
+{% bootstrap_form form %}
+{% buttons %}
+{% bootstrap_button 'Submit' button_type="submit" button_class="btn-primary" %}
+{% endbuttons %}
+</form>
+
+{% endblock %}

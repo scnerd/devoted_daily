@@ -1,0 +1,19 @@
+{% load bootstrap4 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery=1 %}
+{% block prefetch %}{% endblock %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+<head>
+<title>{% block title %}Devotion{% endblock %}</title>
+{% block head %}{% endblock %}
+</head>
+<body>
+    {% block content %}
+
+    {% endblock %}
+</body>

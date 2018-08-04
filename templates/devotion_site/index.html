@@ -1,0 +1,13 @@
+{% extends "./base.html" %}
+
+{% block prefetch %}<html manifest="{% url 'manifest' %}"></html>{% endblock %}
+
+{% load static from staticfiles %}
+{% block head %}
+{% endblock %}
+
+{% block content %}
+{% for f in audio_files %}
+{% include "devotion_site/player.html" with audio_url=f %}
+{% endfor %}
+{% endblock %}

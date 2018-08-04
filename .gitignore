@@ -112,4 +112,7 @@ venv.bak/
 *.iml
 out
 gen
-/secrets/
+/secrets
+!/templates/devotion_site/cache.manifest
+/media/*/
+/static/*/
